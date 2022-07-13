@@ -1,0 +1,17 @@
+Programación reactiva y funcional
+
+
+Ejercicio 1 - valor 65%
+
+Si se realiza bien por completo este ejercicio obtienes el 65% de la nota.
+
+
+Crear una lista de mínimo 30 correos, de los cuales se le deben aplicar los siguientes operadores:
+
+1)  Distinct: para ver si hay correo repetidos, si hay correos repetidos eliminarlos
+2)  Filtro: para saber si hay correos con dominio gmail, hotmail y outlook.
+3)  Map: para saber si todos los correos cumple con todas las condiciones (Que cuente con el @ y el dominio)
+4)  Saber la cantidad de correos que hay, sin usar un ciclo
+5)  Saber la cantidad de correos gmail, hotmail y outlook sin usar un ciclo
+En la misma lista determinar si se envió un correo o no a cada uno de los correos, si se le envió cambiar el estado en
+ la lista, todo esto respetando la inmutabilidad.
