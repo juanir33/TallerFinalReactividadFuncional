@@ -54,4 +54,10 @@ public class FuncioinX {
         return  exponente>1?
          first+X+"^"+exponente : first+X ;
     }
+
+    public String toStringIntegral() {
+        return  first/exponente == 1?
+                X+"^"+exponente : first+"/"+exponente+X+"^"+exponente ;
+    }
+
 }

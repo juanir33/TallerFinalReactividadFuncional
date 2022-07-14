@@ -22,4 +22,19 @@ public class DerivadaIntegral {
 
 
     }
-}
+
+    public void integralOfU(List<FuncioinX> u){
+        var uIntegrada = u.stream().map(
+                item -> {
+                    var exp = item.getExponente()+1;
+
+                    var a = item.getFirst()/exp ==1? 1 : item.getFirst();
+
+                    return new FuncioinX(a,"x",exp);
+
+
+    }).toList();
+        var uIntegradaString = uIntegrada.stream().map(FuncioinX::toStringIntegral)
+                .reduce((a,b) ->  a +"+"+b).orElseThrow();
+        System.out.println(uIntegradaString+"+ C");
+}}

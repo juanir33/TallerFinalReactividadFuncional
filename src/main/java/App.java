@@ -20,6 +20,7 @@ public class App {
         //email.sendEmailVerification(list, "assunta.stoltenberg@gmail.com");
         //email.sendEmailVerification(list, "bertrand34@gmail.com");
        dev.derivadaOfeU(dev.u);
+       dev.integralOfU(dev.u);
 
         //log.info(chate.toString());
        // log.warning(validos.toString());
