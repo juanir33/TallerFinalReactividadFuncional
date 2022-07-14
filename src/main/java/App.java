@@ -1,4 +1,5 @@
 import ejerciciodos.ChatController;
+import ejerciciotres.DerivadaIntegral;
 import ejerciciouno.domain.Email;
 import ejerciciouno.EmailFuncional;
 import ejerciciouno.data.EmailList;
@@ -12,12 +13,13 @@ public class App {
         EmailFuncional email = new EmailFuncional();
         List<Email> list = new EmailList().getListEmails();
         ChatController chat = new ChatController();
+        DerivadaIntegral dev =new DerivadaIntegral();
 
          //email.countAmountOfEmailsByDomain(list);
 
         //email.sendEmailVerification(list, "assunta.stoltenberg@gmail.com");
         //email.sendEmailVerification(list, "bertrand34@gmail.com");
-       chat.postNewChat();
+       dev.derivadaOfeU(dev.u);
 
         //log.info(chate.toString());
        // log.warning(validos.toString());
