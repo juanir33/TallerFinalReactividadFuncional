@@ -1,13 +1,16 @@
-package ejerciciouno;
+package ejerciciouno.domain;
 
 
 public class Email {
     private String email;
     private Boolean verificado;
 
-    public Email(String email, Boolean verificado) {
+    private Boolean isValid;
+
+    public Email(String email, Boolean verificado, Boolean isValid) {
         this.email = email;
         this.verificado = verificado;
+        this.isValid = isValid;
     }
 
     public Boolean verificado() {
@@ -24,6 +27,14 @@ public class Email {
 
     public void setVerificado(Boolean verificado) {
         this.verificado = verificado;
+    }
+
+    public Boolean valid() {
+        return isValid;
+    }
+
+    public void setValid(Boolean valid) {
+        isValid = valid;
     }
 
     @Override
