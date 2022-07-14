@@ -1,3 +1,4 @@
+import ejerciciodos.ChatController;
 import ejerciciouno.domain.Email;
 import ejerciciouno.EmailFuncional;
 import ejerciciouno.data.EmailList;
@@ -10,14 +11,15 @@ public class App {
         Logger log =  Logger.getLogger(App.class.getName());
         EmailFuncional email = new EmailFuncional();
         List<Email> list = new EmailList().getListEmails();
+        ChatController chat = new ChatController();
 
          //email.countAmountOfEmailsByDomain(list);
 
-        email.sendEmailVerification(list, "assunta.stoltenberg@gmail.com");
-        email.sendEmailVerification(list, "bertrand34@gmail.com");
+        //email.sendEmailVerification(list, "assunta.stoltenberg@gmail.com");
+        //email.sendEmailVerification(list, "bertrand34@gmail.com");
+       chat.postNewChat();
 
-
-        //log.info(newlist.toString());
+        //log.info(chate.toString());
        // log.warning(validos.toString());
     }
 }
