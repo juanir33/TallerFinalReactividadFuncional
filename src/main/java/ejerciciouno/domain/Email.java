@@ -42,4 +42,8 @@ public class Email {
         return "Email = " +email+
                 " - verificado= " +verificado;
     }
+    public String toStringNoValid() {
+        return "Email = " +email+
+                " - valido= " +isValid;
+    }
 }

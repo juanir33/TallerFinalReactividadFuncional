@@ -8,12 +8,12 @@ import java.util.logging.Logger;
 
 public class EmailFuncional {
     Logger log = Logger.getLogger("email");
-    public List<Email> emailList = new EmailList().getListEmails();
+
 
 
     public List<Email> findRepeatEmails(List<Email> list) {
         return list.stream()
-                .map(i -> i.email())
+                .map(Email::email)
                 .distinct()
                 .map(item -> new Email(item, false, false))
                 .toList();
@@ -26,7 +26,7 @@ public class EmailFuncional {
     }
 
     public List<Email> validateEmailType(List<Email> list) {
-        var dataFil = list.stream()
+        return list.stream()
                 .map(item ->{
                     var pattern = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
                             + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
@@ -37,13 +37,14 @@ public class EmailFuncional {
                                 new Email(item.email(), item.verificado(), item.valid());})
                 .toList();
 
-        var filtro = dataFil.stream().filter(item -> item.valid().equals(false))
-                        .toList();
+
+    }
+    public void printIfAllIsValidOrInvalid(List<Email> data){
+
+        var filtro = data.stream().filter(item -> item.valid().equals(false))
+                .toList();
         var isAnyNull = filtro.isEmpty() ? "Todos son validos" : "Hay emails, no validos";
         System.out.println(isAnyNull);
-
-        return dataFil;
-
 
     }
 
@@ -77,16 +78,13 @@ public class EmailFuncional {
                 "Gmail: "+gmailCount+"\nHotmail: "+hotmailCount+"\nOutlook: "+outlookCount);
     }
 
-    public void sendEmailVerification(List<Email> list, String enviado){
-        var emailNoRepeat = findRepeatEmails(list);
-        var emailValid = validateEmailType(emailNoRepeat);
-        var isValid = emailValid.stream().filter(email -> email.valid().equals(true)).toList();
-       isValid.stream().map(item-> {
+    public List<Email> sendEmailVerification(List<Email> lista, String enviado){
 
-            return item.email().matches(enviado) ?
-              new Email(item.email(), true, item.valid()) :
-              new Email(item.email(), item.verificado(), item.valid());
-        }).forEach(item-> log.info(item.toString()));
+        var isValid = lista.stream().filter(email -> email.valid().equals(true)).toList();
+        return   isValid.stream().map(item-> item.email().matches(enviado) ?
+          new Email(item.email(), true, item.valid()) :
+          new Email(item.email(), item.verificado(), item.valid())).toList();
+
     }
 
 }
